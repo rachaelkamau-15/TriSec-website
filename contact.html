@@ -170,25 +170,37 @@
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-                   <form action="https://formsubmit.co/trisecuresolutions1@gmail.com" method="POST">
+                <form action="https://formsubmit.co/el/tabaxa" method="POST">
     <div class="row g-3">
-        <div class="col-md-6">
-            <input type="text" name="name" class="form-control border-0 bg-light px-4" placeholder="Your Name" required style="height: 55px;">
-        </div>
-        <div class="col-md-6">
-            <input type="email" name="email" class="form-control border-0 bg-light px-4" placeholder="Your Email" required style="height: 55px;">
+        <div class="col-xl-12">
+            <input type="text" name="name" class="form-control bg-light border-0" placeholder="Your Name" required style="height: 55px;">
         </div>
         <div class="col-12">
-            <input type="text" name="subject" class="form-control border-0 bg-light px-4" placeholder="Subject" required style="height: 55px;">
+            <input type="email" name="email" class="form-control bg-light border-0" placeholder="Your Email" required style="height: 55px;">
         </div>
         <div class="col-12">
-            <textarea name="message" class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Message" required></textarea>
+            <select name="service" class="form-select bg-light border-0" required style="height: 55px;">
+                <option selected disabled>Select A Service</option>
+                <option value="Cyber Security">Cyber Security</option>
+                <option value="Coding & Robotic">Coding & Robotic</option>
+                <option value="IT Support">IT Support</option>
+            </select>
         </div>
         <div class="col-12">
-            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+            <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Message" required></textarea>
+        </div>
+
+        <!-- Optional hidden inputs -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Quote Request from Website">
+
+        <div class="col-12">
+            <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
         </div>
     </div>
 </form>
+
 
                 </div>
                 <div class="col-lg-6 wow slideInUp" data-wow-delay="0.6s">
