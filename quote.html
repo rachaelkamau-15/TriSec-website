@@ -154,26 +154,36 @@
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
                         <form action="https://formsubmit.co/el/tabaxa" method="POST">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://tri-secure-solutions-website.vercel.app/thank-you.html">
-  <input type="hidden" name="_subject" value="New Quote Request">
+    <div class="row g-3">
+        <div class="col-xl-12">
+            <input type="text" name="name" class="form-control bg-light border-0" placeholder="Your Name" required style="height: 55px;">
+        </div>
+        <div class="col-12">
+            <input type="email" name="email" class="form-control bg-light border-0" placeholder="Your Email" required style="height: 55px;">
+        </div>
+        <div class="col-12">
+            <select name="service" class="form-select bg-light border-0" required style="height: 55px;">
+                <option selected disabled>Select A Service</option>
+                <option value="Cyber Security">Cyber Security</option>
+                <option value="Coding & Robotic">Coding & Robotic</option>
+                <option value="IT Support">IT Support</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Message" required></textarea>
+        </div>
 
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
+        <!-- Hidden Fields -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://tri-secure-solutions-website.vercel.app/thank-you.html">
+        <input type="hidden" name="_subject" value="New Quote Request">
 
-  <select name="service" required>
-    <option disabled selected>Select a Service</option>
-    <option value="Cyber Security">Cyber Security</option>
-    <option value="Coding & Robotic">Coding & Robotic</option>
-    <option value="IT Support">IT Support</option>
-  </select>
-
-  <textarea name="message" placeholder="Your Message" required></textarea>
-
-  <button type="submit">Send</button>
+        <div class="col-12">
+            <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
+        </div>
+    </div>
 </form>
-
 
                     </div>
                 </div>
