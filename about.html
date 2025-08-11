@@ -233,18 +233,13 @@
                         <h1 class="m-0"><img src="img/ts-logo.png"  style="height: 90px; margin-right:10px;">TriSecure</h1>    
                       </a>
                         <p class="mt-3 mb-4">Stay Ahead in Tech!Join the TriSecure Solutions newsletter for the latest cybersecurity tips, tech education updates, exclusive offers, and expert insights—delivered straight to your inbox.</p>
-                        <form action="https://formsubmit.co/trisecuresolutions1@gmail.com" method="POST">
-    <div class="input-group">
-        <input type="email" name="email" class="form-control border-white p-3" placeholder="Your Email" required>
-        <button type="submit" class="btn btn-dark">Sign Up</button>
-    </div>
-
-    <!-- Optional Hidden Fields -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_subject" value="New Newsletter Signup">
-</form>
-
+                        <!-- NEWSLETTER FORM: Now handled by AJAX -->
+                        <form id="newsletterForm">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control border-white p-3" placeholder="Your Email" required>
+                                <button type="submit" class="btn btn-dark">Sign Up</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
@@ -314,6 +309,16 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- Newsletter SUCCESS Modal -->
+    <div class="modal fade" id="newsletterThankModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <h5 class="mb-0">Thank you for subscribing!</h5>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -326,6 +331,55 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- AJAX Form Submission for Newsletter -->
+    <script>
+    (function () {
+        var form = document.getElementById('newsletterForm');
+        if (!form) return;
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = '...';
+            }
+
+            var formData = new FormData(form);
+            formData.append('_captcha', 'false');
+            formData.append('_subject', 'New Newsletter Signup');
+
+            fetch('https://formsubmit.co/ajax/trisecuresolutions1@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.json();
+            })
+            .then(data => {
+                var modalEl = document.getElementById('newsletterThankModal');
+                var bsModal = new bootstrap.Modal(modalEl);
+                bsModal.show();
+                form.reset();
+                setTimeout(function() { bsModal.hide(); }, 1000);
+            })
+            .catch(err => {
+                console.error('Newsletter submit error:', err);
+                alert('There was an error. Please try again.');
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Sign Up';
+                }
+            });
+        });
+    })();
+    </script>
 </body>
 
 </html>

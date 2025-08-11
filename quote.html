@@ -154,46 +154,36 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form action="https://formsubmit.co/trisecuresolutions1@gmail.com" method="POST">
-                        <!-- Skip CAPTCHA -->
-                          <input type="hidden" name="_captcha" value="false">
-                        <!-- Redirect after submission -->
-                          <input type="hidden" name="_next" value="https://trisecuresolutions.co.ke/thank.html">
-    <div class="row g-3">
-        <div class="col-xl-12">
-            <input type="text" name="name" class="form-control bg-light border-0" placeholder="Your Name" required style="height: 55px;">
-        </div>
-        <div class="col-12">
-            <input type="email" name="email" class="form-control bg-light border-0" placeholder="Your Email" required style="height: 55px;">
-        </div>
-        <div class="col-12">
-            <select name="service" class="form-select bg-light border-0" required style="height: 55px;">
-                <option selected disabled>Select A Service</option>
-                <option value="Cyber Security">Cyber Security</option>
-                <option value="Coding & Robotic">Coding & Robotics</option>
-                <option value="IT Support">IT Support</option>
-            </select>
-        </div>
-        <div class="col-12">
-            <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Message" required></textarea>
-        </div>
-
-
-        <div class="col-12">
-            <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
-        </div>
-    </div>
-</form>
-
+                        <form id="quoteForm">
+                            <div class="row g-3">
+                                <div class="col-xl-12">
+                                    <input type="text" name="name" class="form-control bg-light border-0" placeholder="Your Name" required style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" name="email" class="form-control bg-light border-0" placeholder="Your Email" required style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <select name="service" class="form-select bg-light border-0" required style="height: 55px;">
+                                        <option selected disabled>Select A Service</option>
+                                        <option value="Cyber Security">Cyber Security</option>
+                                        <option value="Coding & Robotic">Coding & Robotics</option>
+                                        <option value="IT Support">IT Support</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Quote End -->
-
-
-
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -205,18 +195,13 @@
                          <h1 class="m-0"><img src="img/ts-logo.png"  style="height: 90px; margin-right:10px;">TriSecure</h1>
                      </a>
                         <p class="mt-3 mb-4">Stay Ahead in Tech! Join the TriSecure Solutions newsletter for the latest cybersecurity tips, tech education updates, exclusive offers, and expert insights—delivered straight to your inbox.</p>
-                        <form action="https://formsubmit.co/trisecuresolutions1@gmail.com" method="POST">
-    <div class="input-group">
-        <input type="email" name="email" class="form-control border-white p-3" placeholder="Your Email" required>
-        <button type="submit" class="btn btn-dark">Sign Up</button>
-    </div>
-
-    <!-- Optional Hidden Fields -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_subject" value="New Newsletter Signup">
-</form>
-
+                        <!-- NEWSLETTER FORM: Now handled by AJAX -->
+                        <form id="newsletterForm">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control border-white p-3" placeholder="Your Email" required>
+                                <button type="submit" class="btn btn-dark">Sign Up</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
@@ -238,9 +223,7 @@
                                 <p class="mb-0">+254 718 959 518</p>
                             </div>
                             <div class="d-flex mt-4">
-                                
                                 <a class="btn btn-primary btn-square me-2" href="https://www.linkedin.com/company/trisecure-solutions-ke/"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                               
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -270,6 +253,7 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid text-white" style="background: #061429;">
         <div class="container text-center">
             <div class="row justify-content-end">
@@ -287,6 +271,27 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- Quote/Contact Form SUCCESS Modal -->
+    <div class="modal fade" id="thankModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <h5 class="mb-0">Thank you for your request! <BR> We will get back to you shortly.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter SUCCESS Modal -->
+    <div class="modal fade" id="newsletterThankModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <h5 class="mb-0">Thank you for subscribing!</h5>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -299,6 +304,107 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- AJAX submit script for Quote Form -->
+    <script>
+    (function(){
+        var form = document.getElementById('quoteForm');
+        if (!form) return;
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'Sending...';
+            }
+            
+            var formData = new FormData(form);
+            // Required for FormSubmit AJAX forms
+            formData.append('_captcha', 'false');
+
+            fetch('https://formsubmit.co/ajax/trisecuresolutions1@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.json();
+            })
+            .then(data => {
+                // Show Bootstrap modal on success
+                var modalEl = document.getElementById('thankModal');
+                var bsModal = new bootstrap.Modal(modalEl);
+                bsModal.show();
+                form.reset();
+            })
+            .catch(err => {
+                console.error(err);
+                alert('There was an error sending your message. Please try again later.');
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Request A Quote';
+                }
+            });
+        });
+    })();
+    </script>
+    
+    <!-- AJAX Form Submission for Newsletter -->
+    <script>
+    (function () {
+        var form = document.getElementById('newsletterForm');
+        if (!form) return;
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = '...';
+            }
+
+            var formData = new FormData(form);
+            // Required for FormSubmit AJAX forms
+            formData.append('_captcha', 'false');
+            formData.append('_subject', 'New Newsletter Signup');
+
+
+            fetch('https://formsubmit.co/ajax/trisecuresolutions1@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.json();
+            })
+            .then(data => {
+                var modalEl = document.getElementById('newsletterThankModal');
+                var bsModal = new bootstrap.Modal(modalEl);
+                bsModal.show();
+                form.reset();
+                // Auto-hide modal after 1 second
+                setTimeout(function() { bsModal.hide(); }, 1000);
+            })
+            .catch(err => {
+                console.error('Newsletter submit error:', err);
+                alert('There was an error. Please try again.');
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Sign Up';
+                }
+            });
+        });
+    })();
+    </script>
 </body>
 
 </html>
